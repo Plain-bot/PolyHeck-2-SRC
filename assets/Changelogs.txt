@@ -1,0 +1,24 @@
+PolyHeck 2: Game 4
+
+Early Prototype:
+0.1 = 6/10/2021: Early prototype: Nailed movement, menu, terms, you are screen, fullscreen option
+
+0.2 = 6/11/2021: Menu Sounds, Computer-TV and Cointainor sprites
+
+0.3 = 6/12/2021: Main Stage progress, Computer functioning, added the two, interaction, a few tiles
+and sprites including monitor and added Kevin.png sprite
+
+0.4 = 6/24/2021: Fixed interact script (stopped working after i began working on PolyHeck 1)
+
+0.7 = 6/30/2021: Finished Kevins dialog and added new stuff to the good ending route
+(0.5 and 6 i forgot to log... opps)
+
+Prototype:
+0.8 = 7/1/2021: Bullet Hell part
+
+0.9 = 7/2/2021: Added Bad ending and good ending
+
+1.0 = 7/3/2021: The game is somewhat done...
+
+Alpha:
+1.1 = 7/4/2021: added master control cheat and some minor changes

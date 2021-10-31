@@ -1,0 +1,103 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/Fonts/vcr_osd_mono/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/Fonts/Press_Start_2P/PressStart2P-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://AnimationPlayer.gd" type="Script" id=3]
+[ext_resource path="res://assets/images/Rasberry Sprites/Rasberryidlee.png" type="Texture" id=4]
+[ext_resource path="res://assets/Soundtrack/PolyHeck2_YouAre.wav" type="AudioStream" id=5]
+[ext_resource path="res://begin.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Goal"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/Label:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -607.974, 98.4188 ), Vector2( -6.10352e-05, 98.4188 ) ]
+}
+
+[sub_resource type="DynamicFont" id=3]
+size = 34
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 2 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="goal" type="Label" parent="."]
+margin_left = 4.76221
+margin_top = 31.748
+margin_right = 388.762
+margin_bottom = 55.748
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "Number one goal:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Goal = SubResource( 2 )
+script = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="AnimationPlayer"]
+margin_left = -607.974
+margin_top = 98.4188
+margin_right = 132.026
+margin_bottom = 227.419
+custom_fonts/font = SubResource( 3 )
+text = "- Solve puzzles
+- Don't make your power meter go to 0
+- Don't touch PolyHeck
+- ESCAPE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 993.244
+margin_top = 239.959
+margin_right = 1212.24
+margin_bottom = 608.959
+texture = ExtResource( 4 )
+expand = true
+
+[node name="begin" type="Button" parent="."]
+margin_left = 409.389
+margin_top = 514.25
+margin_right = 571.389
+margin_bottom = 570.25
+custom_fonts/font = SubResource( 4 )
+text = "Begin"
+script = ExtResource( 6 )
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]
+[connection signal="pressed" from="begin" to="begin" method="_on_begin_pressed"]

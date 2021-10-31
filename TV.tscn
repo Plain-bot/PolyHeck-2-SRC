@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/images/Tv.png" type="Texture" id=1]
+[ext_resource path="res://assets/Fonts/vcr_osd_mono/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://TV.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 295.526, 232.098 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 60
+font_data = ExtResource( 2 )
+
+[node name="TV" type="Area2D"]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = -171.246
+margin_top = -316.329
+margin_right = 178.754
+margin_bottom = -263.329
+custom_fonts/font = SubResource( 2 )
+text = "E to break"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="wait" type="Timer" parent="."]
+[connection signal="body_entered" from="." to="." method="_on_TV_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_TV_body_exited"]
+[connection signal="timeout" from="wait" to="." method="_on_wait_timeout"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/PolyHeck2_Satelite.wav-1fdbfa4f287ce7ab9f55f2f406e0bfa6.sample"
+
+[deps]
+
+source_file="res://assets/Soundtrack/PolyHeck2_Satelite.wav"
+dest_files=[ "res://.import/PolyHeck2_Satelite.wav-1fdbfa4f287ce7ab9f55f2f406e0bfa6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

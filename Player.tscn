@@ -1,0 +1,112 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://assets/images/Rasberry Sprites/Rasberryidlee.png" type="Texture" id=1]
+[ext_resource path="res://assets/images/Rasberry Sprites/Rasberrywalk1.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/Rasberry Sprites/Rasberrywalk2.png" type="Texture" id=3]
+[ext_resource path="res://Player.gd" type="Script" id=4]
+[ext_resource path="res://assets/images/Blueberry/Blueberryidle.png" type="Texture" id=5]
+[ext_resource path="res://assets/images/Blueberry/Blueberrywalk2.png" type="Texture" id=6]
+[ext_resource path="res://assets/images/Blueberry/Blueberrywalk1.png" type="Texture" id=7]
+[ext_resource path="res://assets/images/Cabbage/Cabbagewalk2.png" type="Texture" id=8]
+[ext_resource path="res://assets/images/Cabbage/Cabbageidle.png" type="Texture" id=9]
+[ext_resource path="res://assets/images/Cabbage/Cabbagewalk1.png" type="Texture" id=10]
+[ext_resource path="res://assets/images/Orange Sprites/Orangeidle.png" type="Texture" id=11]
+[ext_resource path="res://assets/images/Orange Sprites/Orangewalk1.png" type="Texture" id=12]
+[ext_resource path="res://assets/images/Orange Sprites/Orangewalk2.png" type="Texture" id=13]
+[ext_resource path="res://assets/SoundEffects/Footstep.wav" type="AudioStream" id=14]
+[ext_resource path="res://assets/Soundtrack/NightogNights.wav" type="AudioStream" id=15]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "test",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 12.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 55.7614, 148.579 )
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 4 )
+speed = 300
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+
+[node name="O" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 2.23705, 7.87152 )
+scale = Vector2( 0.786968, 0.744287 )
+frames = SubResource( 2 )
+
+[node name="C" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( -3.57628e-06, -0.68498 )
+scale = Vector2( 0.962225, 0.850392 )
+frames = SubResource( 3 )
+
+[node name="B" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 0.153052, 0.484838 )
+scale = Vector2( 0.751577, 0.755295 )
+frames = SubResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 5 )
+
+[node name="walk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = -8.0
+
+[node name="night" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )

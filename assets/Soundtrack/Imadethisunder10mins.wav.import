@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Imadethisunder10mins.wav-36e6d841cdf07463273ce0129f6285ba.sample"
+
+[deps]
+
+source_file="res://assets/Soundtrack/Imadethisunder10mins.wav"
+dest_files=[ "res://.import/Imadethisunder10mins.wav-36e6d841cdf07463273ce0129f6285ba.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

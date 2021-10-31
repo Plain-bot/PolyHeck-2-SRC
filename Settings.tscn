@@ -1,0 +1,121 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://fullscreenoption.gd" type="Script" id=1]
+[ext_resource path="res://assets/Fonts/Press_Start_2P/PressStart2P-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/Fonts/vcr_osd_mono/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://settingsanimation.gd" type="Script" id=4]
+[ext_resource path="res://backtomen.gd" type="Script" id=5]
+[ext_resource path="res://assets/SoundEffects/Open.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/SoundEffects/Click.wav" type="AudioStream" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 75
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 26
+outline_size = 10
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "SettingsPage"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/title:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -390.176, 16.8179 ), Vector2( 33.6359, 21.8633 ) ]
+}
+
+[sub_resource type="DynamicFont" id=4]
+size = 47
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 30
+font_data = ExtResource( 3 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.32549, 0.101961, 0.309804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fullscreenoption" type="Button" parent="."]
+margin_left = 334.225
+margin_top = 126.366
+margin_right = 610.225
+margin_bottom = 198.366
+custom_fonts/font = SubResource( 1 )
+text = "OFF/ON"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hover2" type="AudioStreamPlayer" parent="fullscreenoption"]
+stream = ExtResource( 6 )
+
+[node name="click" type="AudioStreamPlayer" parent="fullscreenoption"]
+stream = ExtResource( 7 )
+
+[node name="fullS" type="Label" parent="."]
+margin_left = 36.9995
+margin_top = 153.043
+margin_right = 322.999
+margin_bottom = 179.043
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.976471, 0.341176, 0.341176, 1 )
+text = "Fullscreen:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/SettingsPage = SubResource( 3 )
+script = ExtResource( 4 )
+
+[node name="title" type="Label" parent="AnimationPlayer"]
+margin_left = -390.176
+margin_top = 16.8179
+margin_right = -14.1759
+margin_bottom = 63.8179
+custom_fonts/font = SubResource( 4 )
+text = "Settings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="backtomen" type="Button" parent="."]
+margin_left = 21.8633
+margin_top = 620.582
+margin_right = 179.863
+margin_bottom = 695.582
+custom_fonts/font = SubResource( 5 )
+text = "Back"
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hover" type="AudioStreamPlayer" parent="backtomen"]
+stream = ExtResource( 6 )
+[connection signal="mouse_entered" from="fullscreenoption" to="fullscreenoption" method="_on_fullscreenoption_mouse_entered"]
+[connection signal="pressed" from="fullscreenoption" to="fullscreenoption" method="_on_fullscreenoption_pressed"]
+[connection signal="mouse_entered" from="backtomen" to="backtomen" method="_on_backtomen_mouse_entered"]
+[connection signal="pressed" from="backtomen" to="backtomen" method="_on_backtomen_pressed"]

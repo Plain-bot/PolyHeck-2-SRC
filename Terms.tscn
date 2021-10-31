@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/Fonts/vcr_osd_mono/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/Fonts/Press_Start_2P/PressStart2P-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://BackTS.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 26
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+font_data = ExtResource( 2 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.054902, 0.152941, 0.498039, 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.67451, 0.639216, 0.231373, 1 )
+text = "Terms and Service"
+
+[node name="BackTS" type="Button" parent="."]
+margin_left = 26.5874
+margin_top = 624.0
+margin_right = 188.587
+margin_bottom = 694.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+text = "Back"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="stuff" type="Label" parent="."]
+margin_left = 1.5874
+margin_top = 73.0204
+margin_right = 529.587
+margin_bottom = 124.02
+custom_fonts/font = SubResource( 3 )
+text = "- Game can be modified
+- Game can be redistributed as long as \"Aranorten\"
+is credited
+- uhhh, plz dont scam people with this?? thanks
+- Remakes and fan games (idk why u want to make one)
+are allowed
+- If you call this game amogus i will cum to ur hoyse
+and beat yo ass"
+[connection signal="pressed" from="BackTS" to="BackTS" method="_on_BackTS_pressed"]

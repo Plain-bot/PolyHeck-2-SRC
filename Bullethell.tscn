@@ -1,0 +1,238 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://assets/images/space_background2.png" type="Texture" id=1]
+[ext_resource path="res://assets/images/space_background1.png" type="Texture" id=2]
+[ext_resource path="res://bullethellship.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/Fonts/vcr_osd_mono/VCR_OSD_MONO_1.001.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Bullethell.gd" type="Script" id=5]
+[ext_resource path="res://assets/images/screen1.png" type="Texture" id=6]
+[ext_resource path="res://kevinboss.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/images/screen2.png" type="Texture" id=8]
+[ext_resource path="res://assets/images/screen3.png" type="Texture" id=9]
+[ext_resource path="res://assets/SoundEffects/static.wav" type="AudioStream" id=10]
+[ext_resource path="res://assets/Soundtrack/PolyHeck2_HellsOdysey.wav" type="AudioStream" id=11]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 24.0
+} ]
+
+[sub_resource type="DynamicFont" id=2]
+size = 45
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+font_data = ExtResource( 4 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 22.2769, 393.489 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 704.277, 25.4894 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 640.384, 362.67 )
+scale = Vector2( 0.677559, 0.550956 )
+frames = SubResource( 1 )
+playing = true
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 3 )]
+position = Vector2( 630, 642 )
+scale = Vector2( 0.4, 0.4 )
+
+[node name="KinematicBody2D2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 600.454, 204.682 )
+scale = Vector2( 0.4, 0.4 )
+
+[node name="Lives" type="Label" parent="."]
+margin_left = 391.418
+margin_top = 671.979
+margin_right = 547.418
+margin_bottom = 711.979
+custom_fonts/font = SubResource( 2 )
+text = "Lives:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+margin_right = 1285.0
+margin_bottom = 742.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="wait" type="Timer" parent="."]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 175.362
+margin_top = 680.237
+margin_right = 359.362
+margin_bottom = 716.237
+custom_fonts/font = SubResource( 3 )
+text = "Bombs: 3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="border" type="KinematicBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border"]
+position = Vector2( -22, 366 )
+shape = SubResource( 4 )
+
+[node name="border2" type="KinematicBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border2"]
+position = Vector2( 1306, 354 )
+shape = SubResource( 4 )
+
+[node name="border3" type="KinematicBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border3"]
+position = Vector2( 598, -28 )
+shape = SubResource( 5 )
+
+[node name="border4" type="KinematicBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border4"]
+position = Vector2( 626, 758 )
+shape = SubResource( 5 )
+
+[node name="SpawnPosition" type="Node" parent="."]
+
+[node name="Position2D" type="Position2D" parent="SpawnPosition" groups=[
+"Spawn",
+]]
+position = Vector2( 54, 106 )
+
+[node name="Position2D2" type="Position2D" parent="SpawnPosition" groups=[
+"Spawn",
+]]
+position = Vector2( 1072, 106 )
+
+[node name="Position2D5" type="Position2D" parent="SpawnPosition" groups=[
+"Spawn",
+]]
+position = Vector2( 448, 86 )
+
+[node name="Position2D6" type="Position2D" parent="SpawnPosition" groups=[
+"Spawn",
+]]
+position = Vector2( 262, 134 )
+
+[node name="Position2D12" type="Position2D" parent="SpawnPosition" groups=[
+"Spawn",
+]]
+position = Vector2( 347.72, 218.132 )
+
+[node name="Position2D13" type="Position2D" parent="SpawnPosition" groups=[
+"Spawn",
+]]
+position = Vector2( 682.661, 292.74 )
+
+[node name="Position2D14" type="Position2D" parent="SpawnPosition" groups=[
+"Spawn",
+]]
+position = Vector2( 901.722, 254.642 )
+
+[node name="Position2D15" type="Position2D" parent="SpawnPosition" groups=[
+"Spawn",
+]]
+position = Vector2( 1108.08, 203.846 )
+
+[node name="Position2D7" type="Position2D" parent="SpawnPosition" groups=[
+"Spawn",
+]]
+position = Vector2( 464, 276 )
+
+[node name="Position2D8" type="Position2D" parent="SpawnPosition" groups=[
+"Spawn",
+]]
+position = Vector2( 164, 210 )
+
+[node name="Position2D9" type="Position2D" parent="SpawnPosition" groups=[
+"Spawn",
+]]
+position = Vector2( 712, 134 )
+
+[node name="Position2D10" type="Position2D" parent="SpawnPosition" groups=[
+"Spawn",
+]]
+position = Vector2( 1010, 214 )
+
+[node name="Position2D11" type="Position2D" parent="SpawnPosition" groups=[
+"Spawn",
+]]
+position = Vector2( 1176, 212 )
+
+[node name="Position2D3" type="Position2D" parent="SpawnPosition" groups=[
+"Spawn",
+]]
+position = Vector2( 816, 184 )
+
+[node name="Position2D4" type="Position2D" parent="SpawnPosition" groups=[
+"Spawn",
+]]
+position = Vector2( 1284, 78 )
+rotation = 2.84509
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[node name="Spawn" type="Node2D" parent="."]
+
+[node name="Shift" type="TextureRect" parent="."]
+visible = false
+margin_left = -16.0
+margin_top = -13.0
+margin_right = 1295.0
+margin_bottom = 779.0
+texture = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="wait2" type="Timer" parent="."]
+
+[node name="wait3" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[node name="wait4" type="Timer" parent="."]
+
+[node name="screen" type="TextureRect" parent="."]
+visible = false
+margin_left = -16.0
+margin_top = -11.0
+margin_right = 1287.0
+margin_bottom = 736.0
+texture = ExtResource( 9 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="static" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[node name="Theme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+autoplay = true
+[connection signal="timeout" from="wait" to="." method="_on_wait_timeout"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
+[connection signal="timeout" from="wait2" to="." method="_on_wait2_timeout"]
+[connection signal="timeout" from="wait3" to="." method="_on_wait3_timeout"]
+[connection signal="timeout" from="wait4" to="." method="_on_wait4_timeout"]
